@@ -1,14 +1,2 @@
 #!/bin/bash
-
-# Get the current directory
-current_directory=$(pwd)
-
-# Get the list of directories in the current directory, excluding "." and ".."
-directories=$(find $current_directory -type d ! -name ".*" ! -name "..")
-
-# Count the number of directories
-number_of_directories=$(echo $directories | wc -l)
-
-# Print the number of directories
-echo "$number_of_directories"
-
+ls -lRa .
