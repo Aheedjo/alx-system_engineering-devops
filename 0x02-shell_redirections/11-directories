@@ -1,0 +1,12 @@
+#!/bin/bash
+
+count=0
+
+for dir in */; do
+  if [ "$dir" != "./" ] && [ "$dir" != "../" ]; then
+    ((count++))
+  fi
+done
+
+echo $count
+
