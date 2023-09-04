@@ -1,0 +1,16 @@
+#!/bin/bash
+
+# Get the current directory
+current_directory=$(pwd)
+
+# Get the list of files in the current directory
+files=$(ls -1 $current_directory)
+
+# Sort the files by modification time, newest first
+sorted_files=$(sort -t " " -k 5n $files)
+
+# Get the first 10 files from the sorted list
+newest_files=$(echo $sorted_files | head -n 10)
+
+# Print the newest files
+echo "$newest_files"
