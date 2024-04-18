@@ -1,12 +1,19 @@
-#!/usr/bin/env bash
-# a script should run the whoami command under the user passed as an argument
-# Exit immediately if the script doesn't receive exactly one argument
-#if [[ $# -ne 1 ]]; then
-#  echo "Usage: $0 <username>"
-#  exit 1
-#fi
+§#!/usr/bin/env bash
+
+# Check if exactly one argument is provided
+if [[ $# -ne 1 ]]; then
+  echo "Usage: $0 <username>"
+  exit 1
+fi
+
+# Check if the user exists
+if ! id "$1" &>/dev/null; then
+  echo "Error: User $1 does not exist"
+  exit 1
+fi
 
 # Use sudo with minimal privileges (using -u option) to run whoami
 sudo -u "$1" whoami
 
 exit 0
+
