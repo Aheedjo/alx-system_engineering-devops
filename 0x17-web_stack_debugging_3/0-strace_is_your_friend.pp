@@ -1,4 +1,6 @@
-#!/usr/bin/env bash
-# fixes an apache server in a docker container
-
-sudo service apache2 start
+# a puppet script as a result of using strace,
+# find out why Apache is returning a 500 error and fix
+exec {'replace':
+  provider => shell,
+  command  => 'sed -i "s/phpp/php/g" /var/www/html/wp-settings.php'
+}
